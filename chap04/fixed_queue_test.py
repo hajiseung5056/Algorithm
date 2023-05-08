@@ -41,8 +41,7 @@ while True:
             print('큐가 비었습니다.')
 
     elif menu == Menu.검색:
-        try:
-            x = int(input('검색할 값을 입력하세요.: '))
+        x = int(input('검색할 값을 입력하세요.: '))
         if x in q:
             print(f'{q.count(x)}개 포함되고, 맨 앞의 위치는 {q.find(x)}입니다.')
         else:
