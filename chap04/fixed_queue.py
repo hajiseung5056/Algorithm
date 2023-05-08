@@ -38,7 +38,7 @@ class FixedQueue:
         self.que[self.rear] = x
         self.rear += 1
         self.no += 1
-        if self.rear == self.capacity
+        if self.rear == self.capacity:
             self.rear = 0
 
     def deque(self) -> Any:
