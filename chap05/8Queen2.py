@@ -6,8 +6,10 @@ flag_b = [False] * 15
 flag_c = [False] * 15
 
 def put() -> None:
-    for i in range(8):
-        print(f'{pos[i]:2}',end='')
+    for j in range(8):
+        for i in range(8):
+            print('■' if pos[i] == j else'□',end='')
+        print()
     print()
 
 def set(i: int) -> None:
