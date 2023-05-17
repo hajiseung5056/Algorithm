@@ -13,7 +13,7 @@
                  a[j + h] = a[j]
                  j -= h
              a[j + h] = tmp
-         h //= 2
+         h // = 2
 
 if __name__ == '__main__':
     print('셸 정렬을 수행합니다.')
