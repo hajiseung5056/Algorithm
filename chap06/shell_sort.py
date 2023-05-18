@@ -1,8 +1,8 @@
 # 셸 정렬 알고리즘 구현하기
 
- from typing import MutableSequence
+from typing import MutableSequence
 
- def shell_sort(a: MutableSequence) -> None:
+def shell_sort(a: MutableSequence) -> None:
      n = len(a)
      h = n // 2
      while h > 0:
@@ -13,7 +13,7 @@
                  a[j + h] = a[j]
                  j -= h
              a[j + h] = tmp
-         h // = 2
+         h //= 2
 
 if __name__ == '__main__':
     print('셸 정렬을 수행합니다.')
