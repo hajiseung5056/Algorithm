@@ -51,3 +51,25 @@ class LinkedList:
                 ptr = ptr.next
             ptr.next = self.current = Node(data, None)
             self.no += 1
+
+    def remove_frist(self) -> None:
+        if self.head is not None:
+            self.head = self.current = self.head.next
+        self.no -= 1
+
+    def remove_last(self):
+        if self.head is not None:
+            if self.head.next is None:
+                self.remove_frist()
+            else:
+                ptr = self.head
+                pre = self.head
+
+                while ptr.next is not None:
+                    pre = ptr
+                    ptr = ptr.next
+                pre.next = None
+                self.current = pre
+                self.current = pre
+                self.no -= 1
+
