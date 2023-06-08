@@ -35,3 +35,9 @@ class LinkedList:
     def __contains__(self, data: Any) -> bool:
 
         return self.search(data) >= 0
+
+    def add_first(self, data: Any) -> None:
+        ptr = self.head
+        self.head = self.current = Node(data,ptr)
+        self.no += 1
+
