@@ -1,6 +1,6 @@
 # 포인터를 이용한 연결 리스트 클래스 LinkedList 사용하기
 
-from emum import Enum
+from enum import Enum
 from linked_list import LinkedList
 
 Menu = Enum('Menu', ['머리에노드삽입', '꼬리에노드삽입', '머리노드삭제', '꼬리노드삭제',

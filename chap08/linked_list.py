@@ -5,9 +5,9 @@ from typing import Any, Type
 
 class Node:
 
-    def __init__(self, data: Any= None,next: Node = None):
+    def __init__(self, data: Any= None, next: Node = None):
         self.data = data
-        self.next = data
+        self.next = next
 
 
 class LinkedList:
@@ -101,7 +101,7 @@ class LinkedList:
         if self.current is None or self.current.next is None:
             return False
         self.current = self.current.next
-        return Ture
+        return True
 
     def print_current_node(self) -> None:
         if self.current is None:
