@@ -47,9 +47,63 @@ class ArrayLinkedList:
             self.deleted = idx
             self.n[idx].dnext = rec
 
-        def search(self, data: Any) -> int:
+    def search(self, data: Any) -> int:
             cnt = 0
             ptr = self.head
             while ptr != Null:
                 if self.n[ptr].data == data:
                     self.current = ptr
+                    return cnt
+                cnt += 1
+                ptr = self.n[ptr].next
+            return Null
+
+    def __contains__(self, data: Any) -> bool:
+        return self.search(data) >=0
+
+    def add_first(self, data: Any):
+        ptr = self.head
+        rec = self.get_insert_index()
+        if rec != Null:
+            self.head = self.current = rec
+            self.n[self.head] = Node(data, ptr)
+            self.no += 1
+
+    def add_last(self, data: Any) -> None:
+        if self.head == Null:
+            self.add_first(data)
+        else:
+            ptr - self.head
+            while self.n[ptr].next != Null:
+                ptr = self.n[ptr].next
+            rec = self.get_insert_index()
+
+            if rec != Null:
+                self.n[ptr].next = self.current = rec
+                self.n[rec] = Node(data)
+                self.no += 1
+
+    def remove_first(self) -> None:
+        if self.head != Null:
+            ptr = self.n[self.head].next
+            self.delete_index(self.head)
+            self.head = self.current = ptr
+            self.no -= 1
+
+    def remove_last(self) -> None:
+        if self.head != Null:
+            if self.n[self.head].next == Null:
+                self.remove_first()
+            else:
+                ptr = self.head
+                pre = self.head
+
+                while self.n[ptr].next != Null:
+                    pre = ptr
+                    ptr = self.n[ptr].next
+                self.n[ptr].next = Null
+                self.delete_index(ptr)
+                self.current = pre
+                self.no -= 1
+
+    def
