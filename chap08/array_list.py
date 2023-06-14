@@ -106,4 +106,56 @@ class ArrayLinkedList:
                 self.current = pre
                 self.no -= 1
 
+    def remove(self, p: int) -> None:
+        if self.head != Null:
+            if p == self.head:
+                self.remove_first()
+            else:
+                ptr = self.head
+
+                while self.n[ptr].next != p:
+                    ptr = self.n[ptr].next
+                    if ptr == Null:
+                        return
+                self.n[ptr].next = Null
+                self.delete_index(p)
+                self.n[ptr].next = self.n[p].next
+                self.current = ptr
+                self.no -= 1
+
+    def remove_current_node(self) -> None:
+        self.remove(self.current)
+
+    def clear(self) -> None:
+        while self.head != Null:
+            self.remove_first()
+        self.current = Null
+
+    def next(self) -> bool:
+        if self.current == Null or self.n[self.current].next == Null:
+            return False
+        self.current = self.n[self.current].next
+        return True
+
+    def print_current_node(self) -> None:
+        if self.current == Null:
+            print('주목 노드가 없습니다.')
+        else:
+            print(self.n[self.current].data)
+
+    def print(self) -> None:
+        ptr = self.head
+
+        while ptr != Null:
+            print(self.n[ptr].data)
+            ptr = self.n[ptr].next
+
+    def dump(self) -> None:
+        for i in self.n:
+            print(f'[{i}] {i.data}{i.next}{i.dnext}')
+
+    def __iter__(self) -> ArrayLinkedListIterator:
+        return ArrayLinkedListIterator(self.n, self.head)
+
+class ArrayLinkedListIterator:
     def
