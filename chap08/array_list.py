@@ -158,4 +158,17 @@ class ArrayLinkedList:
         return ArrayLinkedListIterator(self.n, self.head)
 
 class ArrayLinkedListIterator:
-    def
+    def __init__(self, n: int, head: int):
+        self.n = n
+        self.current = head
+
+    def __iter__(self) -> ArrayLinkedListIterator:
+        return self
+
+    def __next__(self) -> None:
+        if self.current == Null:
+            raise StopIteration
+        else:
+            data = self.n[self.current].data
+            self.current = self.n[self.current].next
+            return data
