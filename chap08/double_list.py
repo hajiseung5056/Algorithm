@@ -64,3 +64,17 @@ class DoubleLinkedList:
             return False
         self.current = self.current.prev
         return True
+
+    def add(self, data: Any) -> None:
+        node = Node(data, self.current, self,current,next)
+        self.current.next.prev = node
+        self.current.next = node
+        self.no += 1
+
+    def add_first(self, data: Any) -> None:
+        self.current = self.head
+        self.add(data)
+
+    def add_last(self, data: Any) -> None:
+        self.current = self.head.prev
+        self.add(data)
