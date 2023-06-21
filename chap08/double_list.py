@@ -50,3 +50,17 @@ class DoubleLinkedList:
     def print_reverse(self) -> None:
         ptr = self.head.prev
         while ptr is not self.head:
+            print(ptr.data)
+            ptr = ptr.prev
+
+    def next(self) -> bool:
+        if self.is_empty() or self.current.next is self.head:
+            return False
+        self.current = self.current.next
+        return True
+
+    def prev(self) -> bool:
+        if self.is_empty() or self.current.prev is self.head:
+            return False
+        self.current = self.current.prev
+        return True
