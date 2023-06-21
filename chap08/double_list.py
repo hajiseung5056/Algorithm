@@ -78,3 +78,36 @@ class DoubleLinkedList:
     def add_last(self, data: Any) -> None:
         self.current = self.head.prev
         self.add(data)
+
+    def remove_current_node(self) -> None:
+        if not self.is_empty():
+            self.current.prev.next = self.current.next
+            self.current.next.prev = self.current.prev
+            self.current = self.current.prev
+            self.no -= 1
+            if self.current is self.head:
+                self.current = self.head.next
+
+    def remove(self, p: Node) -> None:
+
+        ptr = self.head.next
+
+        while ptr is not self.head:
+            if ptr is p:
+                self.current = p
+                self.remove_current_node()
+                break
+            ptr = ptr.next
+
+    def remove_first(self) -> None:
+        self.current = self.head.next
+        self.remove_current_node()
+
+    def remove_last(self) -> None:
+        self.current = self.head.prev
+        self.remove_current_node()
+
+    def clear(self) -> None:
+        while not self.is_empty():
+            self.remove_first()
+        self.no = 0
