@@ -95,4 +95,13 @@ class BinarySearchTree:
                     parent.right = left.left
             return True
 
+        def dump(self) -> None:
+            def print_suvtree(node: Node):
+                if node is not None:
+                    print_subtree(node.left)
+                    print(f'{node.key} {node.value}')
+                    print_suvtree(node.right)
 
+            print_suvtree(self.root)
+
+        def
