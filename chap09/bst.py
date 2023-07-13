@@ -104,4 +104,18 @@ class BinarySearchTree:
 
             print_suvtree(self.root)
 
-        def
+        def min_key(self) -> Any:
+            if self.root is None:
+                return None
+            p = self.root
+            while p.left is not None:
+                p = p.left
+            return p.key
+
+        def max_key(self) -> Any:
+            if self.root is None:
+                return None
+            p = self.root
+            while p.right is not None:
+                p = p.right
+            return p.key
