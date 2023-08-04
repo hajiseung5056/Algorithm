@@ -5,3 +5,5 @@ def max3(a,b,c):
     if b > maximum: maximum = b
     if c > maximum: maximum = c
     return maximum
+
+print(f'max3(3,2,1) = {max(3,2,1)}')
