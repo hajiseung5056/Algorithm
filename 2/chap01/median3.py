@@ -6,3 +6,4 @@ def med3(a,b,c):
             return b
         elif a <= c:
             return a
+    if
